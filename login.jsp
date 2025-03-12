@@ -11,9 +11,14 @@
 <body>
 
 <div class="container" id="container">
-	
+
 	<div class="form-container sign-in-container">
-		<form action="login1" method="POST">
+		<form action="LoginServlet" method="POST">
+	   <%-- Show error message if login fails --%>
+                <% String error = (String) request.getAttribute("error"); %>
+                <% if (error != null) { %>
+                    <p style="color: red;"><%= error %></p>
+                <% } %>
     <h1>Sign in</h1>
     <input type="email" placeholder="Email" name="email" required />
     <input type="password" placeholder="Password" name="password" required/>
